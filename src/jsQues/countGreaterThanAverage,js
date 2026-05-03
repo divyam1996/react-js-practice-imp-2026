@@ -1,0 +1,18 @@
+function countGreaterThanAvg(arr) {
+  let count = 0;
+  let sum = arr[0]; // start with first element
+
+  for (let i = 1; i < arr.length; i++) {
+    let avg = sum / i;
+
+    if (arr[i] > avg) {
+      count++;
+    }
+
+    sum += arr[i];
+  }
+
+  return count;
+}
+
+console.log(countGreaterThanAvg([100, 200, 150, 300]));

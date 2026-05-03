@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "isfolder": true,
+        "name": "public",
+        "children": [
+            {
+                "id": 2,
+                "isfolder": false,
+                "name": "index.js",
+                "children": []
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "isfolder": true,
+        "name": "src",
+        "children": [
+            {
+                "id": 4,
+                "isfolder": true,
+                "name": "jsques",
+                "children": [
+                    {
+                        "id": 5,
+                        "isfolder": false,
+                        "name": "sumofvalues.js",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "isfolder": false,
+        "name": "dummy.txt",
+        "children": []
+    }
+]

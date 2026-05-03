@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Progress bar section */
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  /* Numbers above tabs */
+  .number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3b82f6;
+  }
+  
+  /* Line animation */
+  .progress-line {
+    width: 0;
+    height: 4px;
+    background-color: #3b82f6;
+    transition: width 0.6s ease-in-out;
+  }
+  
+  .progress-line.animate {
+    width: 100px;
+  }
+  
+  /* Tabs container */
+  .tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 300px;
+  }
+  
+  /* Tab Styling */
+  .tab {
+    background-color: #3b82f6;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .tab.visible {
+    opacity: 1;
+  }
+  

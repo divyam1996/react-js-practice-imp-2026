@@ -1,0 +1,57 @@
+import React from 'react'
+import data from './data/data.json'
+
+
+const NestedCheckBox = ({items, checked ,setchecked}) => {
+
+    function handleChange(ischecked , node){
+       
+     setchecked((prev)=> {
+      const newState = { ...prev , [node.id]: ischecked}
+
+      function updateChildren(node){
+        node.children?.forEach((child)=> {
+            newState[child.id] = ischecked;
+            child.children && updateChildren(child);
+         })
+      }
+
+      updateChildren(node)
+
+
+      const verifychecked = (node)=> {
+
+        if(!node.children.length) return newState[node.id] || false;
+
+        const allchildrenchecked = node.children.every((child)=> verifychecked(child));
+
+         newState[node.id] = allchildrenchecked;
+         return allchildrenchecked;
+      }
+       
+      data.forEach((node)=> verifychecked(node));
+
+      return newState;
+     })
+
+
+    }
+
+  return (
+    <div>
+        {items.map((item)=> (
+            <div style={{margin: "10px"}}>
+            <input
+            type="checkbox"
+            checked={checked[item.id] || false}
+            onChange={(e)=> handleChange(e.target.checked , item)}
+            />
+            <label>{item.name}</label>
+            {item.children && <NestedCheckBox items={item.children} checked={checked} setchecked={setchecked}/>}
+            </div>
+        ))}
+    </div>
+  )
+}
+
+export default NestedCheckBox
