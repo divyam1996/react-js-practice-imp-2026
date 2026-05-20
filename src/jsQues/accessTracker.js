@@ -70,6 +70,7 @@
 /// without undordered time
 
 function createAccessTracker() {
+  // console.log({}+[]);
   const map = new Map();
 
   function toMinutes(time) {

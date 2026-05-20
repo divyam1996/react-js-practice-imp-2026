@@ -17,6 +17,27 @@ import Quiz from "./components/Quiz";
 import MovieBooking from "./components/MovieBooking";
 import TicTacToe from "./components/TicTacToe";
 import PaginationNumbers from "./components/Pagination";
+import DataTable from "./components/Datatable";
+import ChatList from "./components/CommonChatList";
+import Todo from "./components/Todo";
+import FormComponent from "./components/FormComponent";
+import { FormProvider } from "./context/FormContext";
+
+
+const tableColumns = [
+  { key: "id", label: "ID" },
+  { key: "name", label: "Name" },
+  { key: "email", label: "Email" },
+  { key: "age", label: "Age" },
+];
+
+const tableData = [
+  { id: 1, name: "Alice", email: "alice@example.com", age: 30 },
+  { id: 2, name: "Bob", email: "bob@example.com", age: 24 },
+  { id: 3, name: "Carol", email: "carol@example.com", age: 28 },
+  { id: 4, name: "Dave", email: "dave@example.com", age: 35 },
+  { id: 5, name: "Eve", email: "eve@example.com", age: 22 },
+];
 
 // Dummy components
 const Home = () => <h2>Home Page</h2>;
@@ -66,7 +87,11 @@ const App = () => {
         <Link to ="/quiz">Quiz</Link> |
         <Link to ="/movie">Movie Booking</Link> | 
         <Link to ="/tictac">Tic Tac Toe</Link> |
-        <Link to ="/pagination">Pagination</Link> 
+        <Link to ="/pagination">Pagination</Link> |
+        <Link to ="/datatable">DataTable</Link> | 
+        <Link to ="/chatList">Chat List</Link> |
+        <Link to ="/todo">Todo</Link> |
+        <Link to ="/formcomp">Form Component</Link> 
       </nav>
 
       {/* Routes */}
@@ -116,8 +141,26 @@ const App = () => {
           <Route path="/movie" element={<MovieBooking/>} />
           <Route path="/tictac" element={<TicTacToe/>} />
           <Route path="/pagination" element={<PaginationNumbers/>} />
+          <Route
+            path="/datatable"
+            element={<DataTable columns={tableColumns} data={tableData} />}
+          />
+          <Route
+            path="/chatList"
+            element={<ChatList />}
+          />
+          <Route
+            path="/todo"
+            element={<Todo />}
+          />
+          <Route
+            path="/formcomp"
+            element={
+            <FormProvider>
+            <FormComponent />
+            </FormProvider>}
           
-          
+          />
       </Routes>
     </div>
   );
